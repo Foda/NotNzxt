@@ -10,7 +10,7 @@ namespace NotNzxt
     public class SmartDeviceV2 : IDisposable
     {
         private const int TotalLightChannel = 2;
-        private const int DeviceBufferSize = 65;
+        private const int DeviceBufferSize = 64;
 
         private HidDevice _device;
 
@@ -45,11 +45,11 @@ namespace NotNzxt
             toWrite[0] = 40;
             toWrite[1] = 3;
             toWrite[2] = 1;   // channel 1
-            toWrite[3] = 40; // ??? Total Channel LEDs
+            toWrite[3] = 40;
             toWrite[4] = 0;
 
             toWrite[8] = (byte)colorList.Count;
-            toWrite[9] = 0; //LED group size
+            toWrite[9] = 0;
 
             int idx = 10;
             for (int i = 0; i < colorList.Count; i++)
